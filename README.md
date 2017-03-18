@@ -6,12 +6,12 @@ Load routers from specific folders for Express.js
 [![npm download][download-image]][download-url]
 [![David deps][david-image]][david-url]
 
-[npm-image]: https://img.shields.io/npm/v/express-load-router.svg
-[npm-url]: https://npmjs.com/package/express-load-router
-[download-image]: https://img.shields.io/npm/dm/express-load-router.svg
-[download-url]: https://npmjs.com/package/express-load-router
-[david-image]: https://img.shields.io/david/SFantasy/express-load-router.svg
-[david-url]: https://david-dm.org/SFantasy/express-load-router
+[npm-image]: https://img.shields.io/npm/v/express-autoload-router.svg
+[npm-url]: https://npmjs.com/package/express-autoload-router
+[download-image]: https://img.shields.io/npm/dm/express-autoload-router.svg
+[download-url]: https://npmjs.com/package/express-autoload-router
+[david-image]: https://img.shields.io/david/imcooder/express-autoload-router.svg
+[david-url]: https://david-dm.org/imcooder/express-autoload-router
 
 [中文文档](README.zh_CN.md)
 

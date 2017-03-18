@@ -10,8 +10,8 @@ Express 自动路由加载模块
 [npm-url]: https://npmjs.com/package/express-autoload-router
 [download-image]: https://img.shields.io/npm/dm/express-autoload-router.svg
 [download-url]: https://npmjs.com/package/express-autoload-router
-[david-image]: https://img.shields.io/david/SFantasy/express-autoload-router.svg
-[david-url]: https://david-dm.org/SFantasy/express-autoload-router
+[david-image]: https://img.shields.io/david/imcooder/express-autoload-router.svg
+[david-url]: https://david-dm.org/imcooder/express-autoload-router
 
 - [安装](#%E5%AE%89%E8%A3%85)
   - [使用](#%E4%BD%BF%E7%94%A8)
