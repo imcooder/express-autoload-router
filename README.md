@@ -1,4 +1,5 @@
 # express-load-router
+<<<<<<< HEAD
 
 Load routers from specific folders for Express.js
 
@@ -119,3 +120,6 @@ See [example](example/).
 ## License
 
 The [MIT License](LICENSE)
+=======
+express auto load router
+>>>>>>> 441aff0e6505286a0acc2580192ce8674a4194b0
