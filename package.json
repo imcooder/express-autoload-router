@@ -4,7 +4,7 @@
     "description": "auto create routers from specified folder for Express.js",
     "author": "imcooder <imcooder@gmail.com>",
     "license": "MIT",
-    "repository": "git@github.com:imcooder/express-load-router",    
+    "repository": "git@github.com:imcooder/express-autoload-router",    
     "dependencies": {
         "glob": "^7.1.1",
         "underscore": "^1.8.3"
