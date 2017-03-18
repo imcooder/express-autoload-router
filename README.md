@@ -39,7 +39,7 @@ const loadRouter = require('express-autoload-router');
 const app = express();
 
 // Use `path.join(__dirname, 'path/to/folder')` here
-loadRouter(app, path.join(__dirname, 'controllers'));
+loadRouter(app, '/api', path.join(__dirname, 'controllers'));
 ```
 
 ### Options
