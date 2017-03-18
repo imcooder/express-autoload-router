@@ -3,7 +3,7 @@ const glob = require('glob');
 const os = require('os');
 const path = require('path');
 const _ = require('underscore');
-const compose = require('./compose');
+const compose = require('./lib/compose');
 const METHOD_ENUM = ['get', 'post', 'put', 'delete', 'patch'];
 
 function trimUrl(url) {
