@@ -6,12 +6,12 @@ Express 自动路由加载模块
 [![npm download][download-image]][download-url]
 [![David deps][david-image]][david-url]
 
-[npm-image]: https://img.shields.io/npm/v/express-load-router.svg
-[npm-url]: https://npmjs.com/package/express-load-router
-[download-image]: https://img.shields.io/npm/dm/express-load-router.svg
-[download-url]: https://npmjs.com/package/express-load-router
-[david-image]: https://img.shields.io/david/SFantasy/express-load-router.svg
-[david-url]: https://david-dm.org/SFantasy/express-load-router
+[npm-image]: https://img.shields.io/npm/v/express-autoload-router.svg
+[npm-url]: https://npmjs.com/package/express-autoload-router
+[download-image]: https://img.shields.io/npm/dm/express-autoload-router.svg
+[download-url]: https://npmjs.com/package/express-autoload-router
+[david-image]: https://img.shields.io/david/SFantasy/express-autoload-router.svg
+[david-url]: https://david-dm.org/SFantasy/express-autoload-router
 
 - [安装](#%E5%AE%89%E8%A3%85)
   - [使用](#%E4%BD%BF%E7%94%A8)
@@ -39,12 +39,16 @@ const app = express();
 // Use `path.join(__dirname, 'path/to/folder')` here
 loadRouter(app, path.join(__dirname, 'controllers'));
 ```
+## 说明
+controller文件名 必须是xxx_controller.js 格式
+导出的api函数名称 必须是xxxAction
 
 ### 可选项
 
 ```js
 loadRouter(app, '/api', path.join(__dirname, 'controllers'));
 ```
+访问url格式 http://127.0.0.1:4000/product/detail
 
 ### `Controller` 声明方式
 
@@ -53,7 +57,7 @@ loadRouter(app, '/api', path.join(__dirname, 'controllers'));
 - 函数
 
 ```js
-exports.api = (req, res) => {
+exports.apiAction = (req, res) => {
   res.send('API');
 };
 ```
@@ -69,7 +73,7 @@ handler  | Function | Yes    |   --    |
 e.g.
 
 ```js
-exports.api = {
+exports.apiAction = {
   method: ['GET'],
   params: [':id'],
   handler(req, res) {
@@ -85,7 +89,7 @@ exports.api = {
 e.g.
 
 ```js
-exports.api = {
+exports.apiAction = {
   method: ['GET'],
   params: [':id'],
   middlewares: [

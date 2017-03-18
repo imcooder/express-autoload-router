@@ -5,7 +5,7 @@ const loadRouter = require('..');
 
 const app = express();
 
-loadRouter(app, '', path.join(__dirname, 'controllers'), {
+loadRouter(app, '/api', path.join(__dirname, 'controllers'), {
   excludeRules: [
     '/product/list',
   ],

@@ -42,11 +42,15 @@ const app = express();
 loadRouter(app, '/api', path.join(__dirname, 'controllers'));
 ```
 
+## Notice
+controller filename must end with '_controller.js', like: list_controller.js
+api function name must endwith 'Action', like: apiAction
 ### Options
 
 ```js
 loadRouter(app, '/api', path.join(__dirname, 'controllers'));
 ```
+access url: http://127.0.0.1:4000/api/product/detail
 
 ### `Controller` declaration
 
@@ -55,7 +59,7 @@ There are three kinds of `Controller` for this package:
 - Plain function
 
 ```js
-exports.api = (req, res) => {
+exports.apiAction = (req, res) => {
   res.send('API');
 };
 ```
@@ -71,7 +75,7 @@ handler  | Function | Yes    |   --    |
 e.g.
 
 ```js
-exports.api = {
+exports.apiAcion = {
   method: ['GET'],
   params: [':id'],
   handler(req, res) {
