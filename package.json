@@ -4,11 +4,7 @@
     "description": "auto create routers from specified folder for Express.js",
     "author": "imcooder <imcooder@gmail.com>",
     "license": "MIT",
-    "repository": "git@github.com:imcooder/express-load-router",
-    "scripts": {
-        "prepublish": "npm run lint",
-        "lint": "./node_modules/.bin/eslint index.js"
-    },
+    "repository": "git@github.com:imcooder/express-load-router",    
     "dependencies": {
         "glob": "^7.1.1",
         "underscore": "^1.8.3"
