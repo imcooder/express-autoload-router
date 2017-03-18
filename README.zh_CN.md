@@ -75,7 +75,6 @@ e.g.
 ```js
 exports.apiAction = {
   method: ['GET'],
-  params: [':id'],
   handler(req, res) {
     res.send('API');
   }
@@ -91,7 +90,6 @@ e.g.
 ```js
 exports.apiAction = {
   method: ['GET'],
-  params: [':id'],
   middlewares: [
     function (req, res, next) {
       console.log('Middleware 1');
