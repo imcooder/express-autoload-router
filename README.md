@@ -1,5 +1,4 @@
-# express-load-router
-<<<<<<< HEAD
+# express-autoload-router
 
 Load routers from specific folders for Express.js
 
@@ -27,7 +26,7 @@ Load routers from specific folders for Express.js
 ## Install
 
 ```
-npm i express-load-router -S
+npm i express-autoload-router -S
 ```
 
 ## Usage
@@ -35,7 +34,7 @@ npm i express-load-router -S
 ```js
 const path = require('path');
 const express = require('express');
-const loadRouter = require('express-load-router');
+const loadRouter = require('express-autoload-router');
 
 const app = express();
 
@@ -46,13 +45,8 @@ loadRouter(app, path.join(__dirname, 'controllers'));
 ### Options
 
 ```js
-loadRouter(app, path.join(__dirname, 'controllers'), options);
+loadRouter(app, '/api', path.join(__dirname, 'controllers'));
 ```
-
-     option    |  type | default
----------------|-------|---------
-`excludeRules` | Array | `[]`
-`rewriteRules` | Map   | `new Map()`
 
 ### `Controller` declaration
 
@@ -70,8 +64,7 @@ exports.api = (req, res) => {
 
 Property |  Type  | Required | Default | Note
 ---------|--------|----------|---------|-------
-method   | String |    No    |  `GET`  | one of ['GET', 'POST', 'PUT', 'DELETE']
-params   | Array  |    No    |  `[]`   |
+method   | String Aarry |    No    |  `GET`  | one of ['GET', 'POST', 'PUT', 'DELETE']
 middlewares | Array | No     |  `[]`   | Array of middlewares, see below
 handler  | Function | Yes    |   --    |
 
@@ -79,7 +72,7 @@ e.g.
 
 ```js
 exports.api = {
-  method: 'GET',
+  method: ['GET'],
   params: [':id'],
   handler(req, res) {
     res.send('API');
@@ -95,8 +88,7 @@ e.g.
 
 ```js
 exports.api = {
-  method: 'GET',
-  params: [':id'],
+  method: ['GET'],
   middlewares: [
     function (req, res, next) {
       console.log('Middleware 1');
@@ -120,6 +112,3 @@ See [example](example/).
 ## License
 
 The [MIT License](LICENSE)
-=======
-express auto load router
->>>>>>> 441aff0e6505286a0acc2580192ce8674a4194b0

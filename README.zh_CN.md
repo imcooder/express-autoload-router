@@ -24,7 +24,7 @@ Express 自动路由加载模块
 ## 安装
 
 ```
-npm i express-load-router -S
+npm i express-autoload-router -S
 ```
 
 ## 使用
@@ -43,13 +43,8 @@ loadRouter(app, path.join(__dirname, 'controllers'));
 ### 可选项
 
 ```js
-loadRouter(app, path.join(__dirname, 'controllers'), options);
+loadRouter(app, '/api', path.join(__dirname, 'controllers'));
 ```
-
-     选项    |  类型 | 默认值
----------------|-------|---------
-`excludeRules` | Array | `[]`
-`rewriteRules` | Map   | `new Map()`
 
 ### `Controller` 声明方式
 
@@ -67,8 +62,7 @@ exports.api = (req, res) => {
 
 属性 |  类型  | 是否必须 | 默认 | 备注
 ---------|--------|----------|---------|-------
-method   | String |    No    |  `GET`  | 枚举值 ['GET', 'POST', 'PUT', 'DELETE']
-params   | Array  |    No    |  `[]`   |
+method   | String Array |    No    |  `GET`  | 枚举值 ['GET', 'POST', 'PUT', 'DELETE']
 middlewares | Array | No     |  `[]`   | 中间件数组，详见下方文档
 handler  | Function | Yes    |   --    |
 
@@ -76,7 +70,7 @@ e.g.
 
 ```js
 exports.api = {
-  method: 'GET',
+  method: ['GET'],
   params: [':id'],
   handler(req, res) {
     res.send('API');
@@ -92,7 +86,7 @@ e.g.
 
 ```js
 exports.api = {
-  method: 'GET',
+  method: ['GET'],
   params: [':id'],
   middlewares: [
     function (req, res, next) {
