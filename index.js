@@ -1,4 +1,6 @@
 // Module dependencies
+/* jshint esversion: 8*/
+/* jshint node:true */
 const glob = require('glob');
 const os = require('os');
 const path = require('path');
@@ -11,24 +13,17 @@ function trimUrl(url) {
 }
 
 function loadRouter(app, urlRoot, root) {
-    console.log('route:', root);
     const opt = {};
     glob.sync(`${root}/**/*_controller.js`).forEach(function(file) {
-        console.log('file:', file);
         const realRoot = os.platform() === 'win32' ? root.replace(/\\/ig, '/') : root;
         const filePath = file.replace(/\.[^.]*$/, '');
-        console.log('filePath:', filePath);
         const controller = require(filePath);
         const urlPrefix = filePath.replace(realRoot, '').replace(/_controller$/, '').replace(/\/index$/, '');
-        console.log('urlPrefix:', urlPrefix);
         const methods = Object.keys(controller);
-        console.log('method:', methods);
 
         function applyMethod(name, methodName, methodBody) {
-            console.log('name:%s methodName:%s', name, methodName);
             const body = methodBody;
             let modifiedUrl = `${urlPrefix}${name === 'index' ? '' : `/${name}`}`;
-            console.log('modifyedUrl:', modifiedUrl);
             let middlewares = [];
             let methods = ['get'];
             let handler;
@@ -61,7 +56,6 @@ function loadRouter(app, urlRoot, root) {
                         return;
                     }
             }
-            console.log('result:' + methods + ' ' + modifiedUrl);
             methods.forEach(function(method) {
                 if (METHOD_ENUM.indexOf(method) !== -1) {
                     if (!handler) {
@@ -72,8 +66,11 @@ function loadRouter(app, urlRoot, root) {
                         urlPatten = urlRoot;
                     }
                     let url = trimUrl(path.join(urlRoot, modifiedUrl + '$'));
-                    console.log('url:', url);
-                    app[method](url, compose(middlewares, modifiedUrl), handler);
+                    if (middlewares.length) {
+                        app[method](url, ...middlewares, handler);
+                    } else {
+                        app[method](url, handler);
+                    }
                 } else {
                     throw Error('[load-router]: invalid method: ', method);
                 }
@@ -83,7 +80,6 @@ function loadRouter(app, urlRoot, root) {
         methods.forEach((method) => {
             const methodName = method;
             if (!methodName.match(/Action$/g)) {
-                console.log('method %s not api', methodName);
                 return;
             }
             const methodBody = controller[method];
