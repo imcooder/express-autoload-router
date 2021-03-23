@@ -1,6 +1,6 @@
 {
     "name": "express-autoload-router",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "auto create routers from specified folder for Express.js",
     "author": "imcooder <imcooder@gmail.com>",
     "license": "MIT",

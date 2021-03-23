@@ -67,7 +67,7 @@ function loadRouter(app, urlRoot, root) {
                     }
                     let url = trimUrl(path.join(urlRoot, modifiedUrl + '$'));
                     if (middlewares.length) {
-                        app[method](url, ...middlewares, handler);
+                        app[method](url, compose(middlewares, modifiedUrl), handler);
                     } else {
                         app[method](url, handler);
                     }
